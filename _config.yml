@@ -1,0 +1,28 @@
+title: Kevin Raymond
+description: Writing about sheet metal, HVAC, work, and whatever else I'm paying attention to.
+url: ""
+baseurl: "" # If using a repo like myblog, change to "/myblog". Leave blank for username.github.io
+permalink: /:categories/:title/
+markdown: kramdown
+highlighter: rouge
+future: false
+show_excerpts: true
+timezone: America/New_York
+
+author:
+  name: Kevin Raymond
+
+collections:
+  pages:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+    values:
+      layout: default
