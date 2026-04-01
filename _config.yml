@@ -1,7 +1,7 @@
 title: Kevin Raymond
 description: Writing about sheet metal, HVAC, work, and whatever else I'm paying attention to.
 url: ""
-baseurl: "" # If using a repo like myblog, change to "/myblog". Leave blank for username.github.io
+baseurl: "https://kesm89.github.io/kevinraymond/" # If using a repo like myblog, change to "/myblog". Leave blank for username.github.io
 permalink: /:categories/:title/
 markdown: kramdown
 highlighter: rouge
