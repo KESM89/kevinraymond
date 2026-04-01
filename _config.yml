@@ -1,7 +1,7 @@
 title: Kevin Raymond
 description: Writing about sheet metal, HVAC, work, and whatever else I'm paying attention to.
-url: "https://kesm89.github.io/kevinraymond/"
-baseurl: "/kevinraymond" # If using a repo like myblog, change to "/myblog". Leave blank for username.github.io
+url: "https://kesm89.github.io"
+baseurl: "/kevinraymond"
 permalink: /:categories/:title/
 markdown: kramdown
 highlighter: rouge
@@ -11,10 +11,6 @@ timezone: America/New_York
 
 author:
   name: Kevin Raymond
-
-collections:
-  pages:
-    output: true
 
 defaults:
   - scope:
