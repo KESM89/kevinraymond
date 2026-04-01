@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<section class="hero">
+  <p class="eyebrow">Blog</p>
+  <h1>{{ page.hero_title | default: site.title }}</h1>
+  <p class="hero-text">{{ page.hero_text | default: site.description }}</p>
+</section>
+
+<section>
+  <div class="section-head">
+    <h2>Latest posts</h2>
+    <a class="archive-link" href="{{ '/archive/' | relative_url }}">View all posts</a>
+  </div>
+
+  {% if site.posts.size > 0 %}
+    <div class="post-list">
+      {% for post in site.posts limit: 10 %}
+        <article class="post-card">
+          <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.categories and post.categories.size > 0 %} · {{ post.categories | join: ', ' }}{% endif %}</p>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          {% if post.description %}
+            <p>{{ post.description }}</p>
+          {% elsif site.show_excerpts %}
+            <p>{{ post.excerpt | strip_html | truncate: 190 }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <p>No posts yet. Add your first Markdown file to <code>_posts/</code>.</p>
+    </div>
+  {% endif %}
+</section>
