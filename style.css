@@ -1,0 +1,250 @@
+/* kevinraymond.me — site stylesheet */
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+a:link    { color: #0000cc; }
+a:visited { color: #551a8b; }
+a:hover   { color: #cc0000; text-decoration: none; }
+a:active  { color: #cc0000; }
+
+#outer {
+  width: 760px;
+  margin: 16px auto;
+}
+
+/* HEADER */
+#header {
+  border: 2px solid #000000;
+  text-align: center;
+  padding: 14px 8px 10px;
+  margin-bottom: 0;
+}
+#header h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 4px 0;
+  letter-spacing: 1px;
+}
+#header h1 a {
+  color: #000000;
+  text-decoration: none;
+}
+#header h1 a:visited { color: #000000; }
+#header h1 a:hover   { color: #000000; text-decoration: none; }
+#header .tagline {
+  font-size: 13px;
+  font-style: italic;
+  color: #333333;
+}
+
+/* NAV */
+#navbar {
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  background-color: #f0f0f0;
+  padding: 5px 0;
+  text-align: center;
+  margin-bottom: 12px;
+}
+#navbar a {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 12px;
+  color: #0000cc;
+  text-decoration: none;
+}
+#navbar a:hover   { color: #cc0000; text-decoration: underline; }
+#navbar a:visited { color: #551a8b; }
+#navbar a.current { color: #000000; text-decoration: none; cursor: default; }
+
+/* TWO COLUMN */
+#content-wrap {
+  display: table;
+  width: 100%;
+}
+#main {
+  display: table-cell;
+  width: 520px;
+  vertical-align: top;
+  padding-right: 16px;
+}
+#sidebar {
+  display: table-cell;
+  width: 220px;
+  vertical-align: top;
+  border-left: 1px solid #cccccc;
+  padding-left: 14px;
+}
+
+/* FULL WIDTH (no sidebar) */
+#main-full {
+  width: 100%;
+}
+
+/* HEADINGS */
+h2 {
+  font-size: 20px;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 4px;
+  margin-top: 0;
+}
+h3 { font-size: 17px; }
+
+/* POSTS — index/blog listing */
+.post { margin-bottom: 20px; }
+.post-date {
+  font-size: 12px;
+  color: #666666;
+  font-style: italic;
+}
+.post-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 2px 0 6px;
+}
+.post-title a { color: #0000cc; text-decoration: none; }
+.post-title a:visited { color: #551a8b; }
+.post-title a:hover   { color: #cc0000; text-decoration: underline; }
+.post-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #111111;
+}
+.post-more { margin-top: 5px; font-size: 13px; }
+.post-more a { color: #0000cc; }
+.post-more a:hover { color: #cc0000; }
+
+/* FULL POST PAGE */
+.post-full-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 4px 0;
+}
+.post-full-date {
+  font-size: 12px;
+  color: #666666;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.post-full-body {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.post-full-body p { margin: 0 0 14px 0; }
+.post-nav {
+  margin-top: 20px;
+  font-size: 13px;
+  border-top: 1px solid #cccccc;
+  padding-top: 10px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 18px 0;
+}
+hr.heavy {
+  border-top: 2px solid #000000;
+  margin: 10px 0;
+}
+
+/* SIDEBAR WIDGETS */
+.widget { margin-bottom: 18px; }
+.widget h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid #000000;
+  margin: 0 0 6px;
+  padding-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.widget p, .widget ul {
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.7;
+}
+.widget ul { list-style: disc; padding-left: 16px; }
+.widget a         { color: #0000cc; }
+.widget a:visited { color: #551a8b; }
+.widget a:hover   { color: #cc0000; }
+
+/* HIT COUNTER */
+#counter-wrap {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  color: #333333;
+}
+.counter-digits {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  background: #f0f0f0;
+  border: 2px inset #999999;
+  padding: 2px 6px;
+}
+
+.blink { animation: blink 1s step-start infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* CONTACT FORM */
+.contact-table { border-collapse: collapse; width: 100%; max-width: 480px; }
+.contact-table td { padding: 6px 4px; font-size: 14px; vertical-align: top; }
+.contact-table td.label { width: 100px; font-weight: bold; padding-top: 8px; }
+.contact-table input[type="text"],
+.contact-table input[type="email"],
+.contact-table textarea {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  border: 1px solid #999999;
+  padding: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fafafa;
+}
+.contact-table textarea { height: 120px; resize: vertical; }
+.contact-table input[type="submit"] {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  background: #f0f0f0;
+  border: 2px outset #999999;
+  padding: 4px 16px;
+  cursor: pointer;
+}
+.contact-table input[type="submit"]:hover { background: #e0e0e0; }
+
+/* LINKS PAGE */
+.links-section { margin-bottom: 22px; }
+.links-section h3 {
+  font-size: 16px;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 3px;
+  margin-bottom: 8px;
+}
+.links-section ul { list-style: disc; padding-left: 20px; line-height: 1.8; font-size: 14px; }
+.links-section .link-desc { color: #555555; font-size: 13px; }
+
+/* FOOTER */
+#footer {
+  border-top: 2px solid #000000;
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 12px;
+  color: #555555;
+  margin-top: 12px;
+}
+#footer a         { color: #0000cc; }
+#footer a:visited { color: #551a8b; }
+#footer a:hover   { color: #cc0000; }
