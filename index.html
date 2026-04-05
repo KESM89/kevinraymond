@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Kevin Raymond">
   <meta name="description" content="Kevin Raymond's personal site. Writing about sheet metal, the trades, and other things.">
   <title>Kevin Raymond</title>
@@ -27,6 +28,11 @@
   <div id="content-wrap">
     <div id="main">
 
+      <!-- ================================================
+           POSTS — newest first. JS limits display to 7.
+           Add new posts at the TOP, above this comment.
+           ================================================ -->
+
       <div class="post">
         <div class="post-date">April 4, 2026</div>
         <div class="post-title"><a href="posts/slip-through-the-glove.html">Too Many Slip Through the Glove</a></div>
@@ -38,7 +44,7 @@
         <div class="post-more"><a href="posts/slip-through-the-glove.html">Continue reading &raquo;</a></div>
       </div>
 
-      <hr>
+      <hr class="post-hr">
 
       <div class="post">
         <div class="post-date">April 3, 2026</div>
@@ -48,6 +54,12 @@
           Now that's the way to start a blog! Annoy some folks right off the rip.
         </div>
         <div class="post-more"><a href="posts/good-friday.html">Continue reading &raquo;</a></div>
+      </div>
+
+      <!-- older posts go here automatically, JS hides them if > 7 -->
+
+      <div id="archive-link" style="display:none; margin-top:16px; font-size:13px;">
+        &rarr; <a href="blog.html">Older posts in the archive</a>
       </div>
 
     </div><!-- /#main -->
@@ -104,12 +116,30 @@
 
 </div><!-- /#outer -->
 <script type="text/javascript">
+  // Hit counter
   (function () {
     var base = 4217;
     var count = parseInt(localStorage.getItem('krhits') || base, 10) + 1;
     localStorage.setItem('krhits', count);
     document.getElementById('visitor-num').textContent = count;
     document.getElementById('counter').textContent = String(count).padStart(6, '0');
+  })();
+
+  // Limit home page to 7 posts — hide the rest and show archive link
+  (function () {
+    var MAX = 7;
+    var posts = document.querySelectorAll('#main .post');
+    var hrs   = document.querySelectorAll('#main hr.post-hr');
+    if (posts.length > MAX) {
+      for (var i = MAX; i < posts.length; i++) {
+        posts[i].style.display = 'none';
+      }
+      // hide the dividing <hr> that sits before a hidden post
+      for (var j = MAX - 1; j < hrs.length; j++) {
+        hrs[j].style.display = 'none';
+      }
+      document.getElementById('archive-link').style.display = 'block';
+    }
   })();
 </script>
 </body>

@@ -248,3 +248,51 @@ hr.heavy {
 #footer a         { color: #0000cc; }
 #footer a:visited { color: #551a8b; }
 #footer a:hover   { color: #cc0000; }
+
+/* ================================================
+   RESPONSIVE — mobile adjustments only
+   Desktop layout is completely unchanged
+   ================================================ */
+@media screen and (max-width: 780px) {
+
+  #outer {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 8px;
+  }
+
+  /* Stack columns vertically */
+  #content-wrap {
+    display: block;
+  }
+  #main {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+  }
+  #sidebar {
+    display: block;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #cccccc;
+    padding-left: 0;
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  /* Slightly larger tap targets for links */
+  #navbar a {
+    display: inline-block;
+    padding: 4px 0;
+    margin: 0 8px;
+  }
+
+  /* Post titles readable without zooming */
+  .post-title       { font-size: 16px; }
+  .post-full-title  { font-size: 20px; }
+  #header h1        { font-size: 22px; }
+
+  /* Contact form full width */
+  .contact-table { width: 100%; }
+}
