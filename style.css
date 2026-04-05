@@ -17,6 +17,7 @@ a:active  { color: #cc0000; }
 #outer {
   width: 760px;
   margin: 16px auto;
+  box-sizing: border-box;
 }
 
 /* HEADER */
@@ -24,7 +25,6 @@ a:active  { color: #cc0000; }
   border: 2px solid #000000;
   text-align: center;
   padding: 14px 8px 10px;
-  margin-bottom: 0;
 }
 #header h1 {
   font-family: "Times New Roman", Times, serif;
@@ -33,12 +33,9 @@ a:active  { color: #cc0000; }
   margin: 0 0 4px 0;
   letter-spacing: 1px;
 }
-#header h1 a {
-  color: #000000;
-  text-decoration: none;
-}
+#header h1 a { color: #000000; text-decoration: none; }
 #header h1 a:visited { color: #000000; }
-#header h1 a:hover   { color: #000000; text-decoration: none; }
+#header h1 a:hover   { color: #000000; }
 #header .tagline {
   font-size: 13px;
   font-style: italic;
@@ -67,28 +64,24 @@ a:active  { color: #cc0000; }
 #navbar a:visited { color: #551a8b; }
 #navbar a.current { color: #000000; text-decoration: none; cursor: default; }
 
-/* TWO COLUMN */
+/* TWO COLUMN — flexbox */
 #content-wrap {
-  display: table;
-  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
 }
 #main {
-  display: table-cell;
-  width: 520px;
-  vertical-align: top;
+  flex: 1;
+  min-width: 0;
   padding-right: 16px;
+  box-sizing: border-box;
 }
 #sidebar {
-  display: table-cell;
   width: 220px;
-  vertical-align: top;
+  flex-shrink: 0;
   border-left: 1px solid #cccccc;
   padding-left: 14px;
-}
-
-/* FULL WIDTH (no sidebar) */
-#main-full {
-  width: 100%;
+  box-sizing: border-box;
 }
 
 /* HEADINGS */
@@ -100,7 +93,7 @@ h2 {
 }
 h3 { font-size: 17px; }
 
-/* POSTS — index/blog listing */
+/* POSTS — listing */
 .post { margin-bottom: 20px; }
 .post-date {
   font-size: 12px;
@@ -112,7 +105,7 @@ h3 { font-size: 17px; }
   font-weight: bold;
   margin: 2px 0 6px;
 }
-.post-title a { color: #0000cc; text-decoration: none; }
+.post-title a         { color: #0000cc; text-decoration: none; }
 .post-title a:visited { color: #551a8b; }
 .post-title a:hover   { color: #cc0000; text-decoration: underline; }
 .post-body {
@@ -121,10 +114,10 @@ h3 { font-size: 17px; }
   color: #111111;
 }
 .post-more { margin-top: 5px; font-size: 13px; }
-.post-more a { color: #0000cc; }
+.post-more a       { color: #0000cc; }
 .post-more a:hover { color: #cc0000; }
 
-/* FULL POST PAGE */
+/* FULL POST */
 .post-full-title {
   font-size: 24px;
   font-weight: bold;
@@ -175,10 +168,10 @@ hr.heavy {
   margin: 0;
   line-height: 1.7;
 }
-.widget ul { list-style: disc; padding-left: 16px; }
-.widget a         { color: #0000cc; }
-.widget a:visited { color: #551a8b; }
-.widget a:hover   { color: #cc0000; }
+.widget ul         { list-style: disc; padding-left: 16px; }
+.widget a          { color: #0000cc; }
+.widget a:visited  { color: #551a8b; }
+.widget a:hover    { color: #cc0000; }
 
 /* HIT COUNTER */
 #counter-wrap {
@@ -245,54 +238,57 @@ hr.heavy {
   color: #555555;
   margin-top: 12px;
 }
-#footer a         { color: #0000cc; }
-#footer a:visited { color: #551a8b; }
-#footer a:hover   { color: #cc0000; }
+#footer a          { color: #0000cc; }
+#footer a:visited  { color: #551a8b; }
+#footer a:hover    { color: #cc0000; }
 
 /* ================================================
-   RESPONSIVE — mobile adjustments only
-   Desktop layout is completely unchanged
+   RESPONSIVE — mobile
    ================================================ */
 @media screen and (max-width: 780px) {
 
   #outer {
     width: 100%;
     margin: 0;
-    box-sizing: border-box;
-    padding: 8px;
+    padding: 10px;
   }
 
-  /* Stack columns vertically */
-  #content-wrap {
-    display: block;
-  }
+  #header h1   { font-size: 22px; }
+  #header .tagline { font-size: 12px; }
+
+  /* Nav wraps on small screens */
+  #navbar { padding: 6px 4px; line-height: 2; }
+  #navbar a { margin: 0 6px; font-size: 13px; }
+
+  /* Stack columns */
+  #content-wrap { flex-direction: column; }
   #main {
-    display: block;
     width: 100%;
     padding-right: 0;
   }
   #sidebar {
-    display: block;
     width: 100%;
     border-left: none;
     border-top: 1px solid #cccccc;
     padding-left: 0;
     padding-top: 16px;
-    margin-top: 16px;
+    margin-top: 8px;
   }
 
-  /* Slightly larger tap targets for links */
-  #navbar a {
-    display: inline-block;
-    padding: 4px 0;
-    margin: 0 8px;
+  /* Sidebar widgets in a 2-col grid on wider phones */
+  @media screen and (min-width: 480px) {
+    .widget {
+      display: inline-block;
+      vertical-align: top;
+      width: 48%;
+      margin-right: 2%;
+    }
   }
 
-  /* Post titles readable without zooming */
-  .post-title       { font-size: 16px; }
-  .post-full-title  { font-size: 20px; }
-  #header h1        { font-size: 22px; }
+  .post-title      { font-size: 16px; }
+  .post-full-title { font-size: 20px; }
+  .post-full-body  { font-size: 14px; }
 
-  /* Contact form full width */
-  .contact-table { width: 100%; }
+  /* Post nav links stack on very small screens */
+  .post-nav { line-height: 2; }
 }
